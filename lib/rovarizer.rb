@@ -1,19 +1,15 @@
-def rovarizer(cleartext: )
-  i= 0
-  y= 0
-  rovarized_text = []
-  konsonant = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z"]
-  cleartext = cleartext.split("")
-  p cleartext #för att se vad jag får
-  cleartext.each do |rovarize|
-   if cleartext[y] == konsonant[i]
-         rovarized_text << "#{cleartext[y]}O#{cleartext[y]}"
-   elsif
 
-   end
+  def rovarize(cleartext: )
+    rovarized_text = ""
+    konsonant = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z"]
+    cleartext.each_char do |bokstav|
+      if konsonant.include? bokstav.upcase
+        rovarized_text += (bokstav + "o" + bokstav)
+      else
+        rovarized_text += bokstav
+      end
+    end
+    return rovarized_text
   end
-  p rovarized_text
-end
 
 
-rovarizer(cleartext: "Bej på dig")
